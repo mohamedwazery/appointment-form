@@ -1,0 +1,57 @@
+<style>
+.ccf-appointment-form {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+.form-label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+.form-control, .form-select, textarea {
+  border-radius: 12px !important;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+.form-control:focus, .form-select:focus, textarea:focus {
+  border-color: #007bff;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+textarea {
+  min-height: 100px;
+}
+.btn-outline-primary {
+  border-radius: 10px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+#detect-location {
+  padding: 0.5rem 1rem !important;
+  line-height: 1.2 !important;
+  display: inline-block;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+#detect-location br {
+  display: none !important;
+}
+
+p:has(#detect-location) {
+  margin: 0 !important;
+}
+
+.btn-outline-primary {
+  border-radius: 10px !important;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+</style>

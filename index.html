@@ -1,0 +1,179 @@
+<div class="ccf-appointment-form">
+  <h3 class="text-center mb-4">📸 Book Your Appointment</h3>
+  <p class="text-center mb-5">
+    Please fill in your details below and we’ll contact you to confirm your booking.
+  </p>
+
+  <div class="container">
+    <form id="appointmentForm">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Full Name *</label>
+          <input type="text" class="form-control" name="your-name" placeholder="Enter your full name" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email Address *</label>
+          <input type="email" class="form-control" name="your-email" placeholder="Enter your email address" required>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" name="your-phone" placeholder="Enter your phone number">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Select Date *</label>
+          <input type="date" class="form-control" name="appointment-date" required>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label">Select Time *</label>
+          <input type="time" class="form-control" name="appointment-time" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Session Type *</label>
+          <select class="form-select" name="session-type" required>
+            <option value="">Select Session Type</option>
+            <option>Family</option>
+            <option>Couples</option>
+            <option>Wedding</option>
+            <option>Engagement</option>
+            <option>Corporate</option>
+            <option>Product</option>
+            <option>Event</option>
+            <option>Portrait</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <label class="form-label">📍 Location</label>
+          <div class="row g-2 align-items-center">
+            <div class="col-8 col-md-9">
+              <input
+                type="text"
+                id="location-field"
+                class="form-control"
+                name="your-location"
+                placeholder="Enter address or tap 'Use My Location'"
+              >
+            </div>
+            <div class="col-4 col-md-3">
+              <button
+                type="button"
+                id="detect-location"
+                class="btn btn-outline-primary w-100"
+              >
+                Use My Location
+              </button>
+            </div>
+          </div>
+          <small id="location-status" class="text-muted mt-1 d-block"></small>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <label class="form-label">Additional Notes</label>
+          <textarea class="form-control" name="your-message" placeholder="Tell us more about your session (optional)"></textarea>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col text-center">
+          <button type="submit" class="btn btn-dark px-5 py-2">Book Appointment</button>
+        </div>
+      </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const btn = document.getElementById("detect-location");
+  const input = document.getElementById("location-field");
+  const status = document.getElementById("location-status");
+
+  if (btn && navigator.geolocation) {
+    btn.addEventListener("click", () => {
+      status.textContent = "📍 Detecting location...";
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude.toFixed(6);
+          const lon = position.coords.longitude.toFixed(6);
+          const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
+          input.value = mapsLink;
+          status.textContent = "✅ Location detected successfully!";
+        },
+        () => {
+          status.textContent = "❌ Unable to access your location.";
+        }
+      );
+    });
+  } else {
+    if (status) status.textContent = "⚠️ Geolocation not supported by your browser.";
+  }
+});
+</script>
+
+<style>
+.ccf-appointment-form {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+.form-label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+.form-control, .form-select, textarea {
+  border-radius: 12px !important;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+.form-control:focus, .form-select:focus, textarea:focus {
+  border-color: #007bff;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+textarea {
+  min-height: 100px;
+}
+.btn-outline-primary {
+  border-radius: 10px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+#detect-location {
+  padding: 0.5rem 1rem !important;
+  line-height: 1.2 !important;
+  display: inline-block;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+#detect-location br {
+  display: none !important;
+}
+
+p:has(#detect-location) {
+  margin: 0 !important;
+}
+
+.btn-outline-primary {
+  border-radius: 10px !important;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+</style>
