@@ -26,3 +26,23 @@ It includes smart geolocation detection, clean UI, and elegant design suitable f
 
 ## 📂 Project Structure
 
+
+---
+
+## 🖼️ Preview
+
+![Appointment Form Screenshot](images/appointment-form.png)
+
+---
+
+## ⚙️ How to Use
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/mohamedwazery/appointment-form.git
+
+
+
+
+MIT License
+Copyright (c) 2025 Mohamed Wazery
