@@ -1,6 +1,6 @@
 # 📸 Appointment Booking Form
 
-A modern and responsive **appointment booking form** built using **HTML**, **CSS (Bootstrap 5)**, and **JavaScript**.  
+A modern, fast, and responsive **appointment booking form** built using **HTML**, **CSS (Bootstrap 5)**, and **JavaScript**.  
 It includes smart geolocation detection, clean UI, and elegant design suitable for photographers, salons, or any booking-based business.
 
 ---
